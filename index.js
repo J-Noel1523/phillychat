@@ -57,11 +57,11 @@ allowedAttributes:{
 
 
  mongoose.connect('mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
- console.log('Database connection', error);
+ console.log('Here is Database Connection error', error);
 
 });
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 var Messages = mongoose.model('messages', {
   name: String,
   chat: String
