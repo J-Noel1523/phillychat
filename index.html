@@ -47,7 +47,7 @@
        <form style="position:absolute" id="form" action="/cloud" method="post" enctype="multipart/form-data">
          Upload a File:
          <input type="file" id="myfile" name="myfile">
-         <input type="submit" id="submit" name="submit" value="Upload File Now" >
+         <input type="submit" id="submit" name="submit" value="Upload File" >
      </form>
      <p id="status"></p>
 
@@ -67,8 +67,7 @@ socket.on("chat", addChat);
       $('#form').ajaxForm(function(response) {
         alert(response);
       });
-/*
-*/
+
      //alert("hi");
      var height = window.innerHeight;
      $("#contain").css("margin-top", height * 0.5 );
