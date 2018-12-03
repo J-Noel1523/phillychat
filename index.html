@@ -198,10 +198,10 @@ socket.on('chat', function(data){
           //  $('#txtName').val(name);
             $('#txtMessage').val('');
             d.animate({ scrollTop: d.prop('scrollHeight') }, 100);
-            socket.emit("typing", false);
+          //  socket.emit("typing", false);
         })
 
-    })
+
 
     function postChat(chat) {
         $.post("/chats", chat)
@@ -218,7 +218,7 @@ function addChat(chatMessage){
 
     $("#messages").append(`<p style="margin-left:5px;"><strong> ${chatMessage.name}:</strong> ${chatMessage.chat}</p> `).css("display","inline");
 }
-
+})
 </script>
 
 </body>
