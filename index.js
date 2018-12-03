@@ -60,7 +60,7 @@ allowedAttributes:{
  console.log('Database connection', error);
 });
 
-mongoose.Promise = Promise;
+mongoose.Promise = global.Promise;
 var Messages = mongoose.model('messages', {
   name: String,
   chat: String
