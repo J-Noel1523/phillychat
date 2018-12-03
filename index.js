@@ -57,7 +57,7 @@ allowedAttributes:{
 });
 
 
- mongoose.connect(process.env.MONGODB_URI || 'mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
+ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/herokudb',{ useNewUrlParser: true}, function(error){
  console.log('Here is Database Connection error', error);
 
 });
