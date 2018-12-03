@@ -64,11 +64,11 @@ var socket = io();
 socket.on("chat", addChat);
     $(function() {
 
-/*
+
       $('#form').ajaxForm(function(response) {
         alert(response);
       });
-*/
+
      //alert("hi");
      var height = window.innerHeight;
      $("#contain").css("margin-top", height * 0.5 );
@@ -176,7 +176,13 @@ socket.on('chat', function(data){
 
 
         $("#send").click(() => {
-        $("#txtMessage").val($.trim($("#txtMessage").val()).replace(/\s*[\r\n]+\s*/g, '\n')
+          $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
+            var chatMessage = {
+                name: $("#txtName").val(), chat: $("#txtMessage").val()
+            }
+            postChat(chatMessage);
+
+      $("#txtMessage").val($.trim($("#txtMessage").val()).replace(/\s*[\r\n]+\s*/g, '\n')
                                         .replace(/(<[^\/][^>]*>)\s*/g, '$1')
                                         .replace(/\s*(<\/[^>]+>)/g, '$1'));
           if($("#txtName").val() == "" || $("#txtMessage").val() == ""){
