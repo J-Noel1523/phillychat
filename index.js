@@ -104,6 +104,7 @@ socket.on("typing", function(data){
   });
 });
 
-var server = http.listen(3020, () => {
+
+var server = http.listen(process.env.PORT || 3020, () => {
     console.log("Well done, now I am listening on ", server.address().port);
 });
