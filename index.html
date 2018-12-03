@@ -61,9 +61,9 @@
 <script>
 var socket = io();
 
-
-    $(function() {
 socket.on("chat", addChat);
+    $(function() {
+
       $('#form').ajaxForm(function(response) {
         alert(response);
       });
