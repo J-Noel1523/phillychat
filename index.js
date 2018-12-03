@@ -11,11 +11,11 @@ const path = require('path');
 var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
-var app = express();
-var http = require('http').Server(app);
+var app  = express();
+require('dotenv').config();
+const http = require('http').Server(app);
 var io = require("socket.io")(http);
-var dbUrl = process.env.MONGODB_URI;
-
+//var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -56,23 +56,26 @@ allowedAttributes:{
 }
 });
 
+
+ mongoose.connect(process.env.MONGODB_URI || 'mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
+ console.log('Here is Database Connection error', error);
+
+});
+
+
+
 mongoose.Promise = Promise;
 var Messages = mongoose.model('messages', {
   name: String,
   chat: String
  });
-
-  mongoose.connect(dbUrl,{ useNewUrlParser: true}, function(error){
-  console.log('Database connection', error);
- });
-
   app.post("/chats",  function (req, res)  {
 
      try {
 
          var chat = new Messages(req.body);
-      //    await chat.save();
-Messages.insert(chat);
+      //   await chat.save();
+
         res.sendStatus(200);
         //Emit the event
       io.emit("chat", req.body);
@@ -103,7 +106,6 @@ socket.on("typing", function(data){
   socket.broadcast.emit("typing", data);
   });
 });
-
 
 var server = http.listen(process.env.PORT || 3020, () => {
     console.log("Well done, now I am listening on ", server.address().port);
