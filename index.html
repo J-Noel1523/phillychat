@@ -64,12 +64,6 @@ var socket = io();
 socket.on("chat", addChat);
     $(function() {
 
-      var chatMessageTest = {
-          name:"David", chat: "Hello"
-      }
-
-
-      postChat(chatMessageTest);
 
       $('#form').ajaxForm(function(response) {
         alert(response);
