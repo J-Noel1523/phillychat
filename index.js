@@ -12,10 +12,10 @@ var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
 var app  = express();
-var https = require('require-https').Server(app);
+const https = require('https').Server(app);
 var io = require("socket.io")(https);
 var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
-app.use(express.static(__dirname ));
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
