@@ -199,7 +199,8 @@ socket.on('chat', function(data){
             $('#txtMessage').val('');
             d.animate({ scrollTop: d.prop('scrollHeight') }, 100);
           //  socket.emit("typing", false);
-        })
+        });
+      });
 
 
 
@@ -218,7 +219,7 @@ function addChat(chatMessage){
 
     $("#messages").append(`<p style="margin-left:5px;"><strong> ${chatMessage.name}:</strong> ${chatMessage.chat}</p> `).css("display","inline");
 }
-})
+
 </script>
 
 </body>
