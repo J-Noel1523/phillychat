@@ -55,16 +55,16 @@ allowedAttributes:{
 }
 });
 
+
+ mongoose.connect(dbUrl,{ useNewUrlParser: true}, function(error){
+ console.log('Database connection', error);
+});
+
 mongoose.Promise = Promise;
 var Messages = mongoose.model('messages', {
   name: String,
   chat: String
  });
-
-  mongoose.connect(dbUrl,{ useNewUrlParser: true}, function(error){
-  console.log('Database connection', error);
- });
-
   app.post("/chats",  function (req, res)  {
 
      try {
