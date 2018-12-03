@@ -61,6 +61,7 @@ allowedAttributes:{
  console.log('Here is Database Connection error', error);
 console.log(process.env.MONGODB_URI);
 });
+mongoose.connection.on('connected', function(){console.log("successfully connected to Database");});
 
 
 
