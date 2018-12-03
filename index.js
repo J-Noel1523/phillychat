@@ -59,7 +59,7 @@ allowedAttributes:{
 
  mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/herokudb',{ useNewUrlParser: true}, function(error){
  console.log('Here is Database Connection error', error);
-
+console.log(process.env.MONGODB_URI);
 });
 
 
