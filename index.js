@@ -74,9 +74,9 @@ var Messages = mongoose.model('messages', {
 
      try {
 
-         var chat = new Messages({name: 'jerry', chat:'hello'});
+         var chat = new Messages(req.body);
       //   await chat.save();
-
+Messages.insert({name: 'jerry', chat:'hello'});
         res.sendStatus(200);
         //Emit the event
       io.emit("chat", req.body);
