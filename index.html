@@ -190,9 +190,10 @@ socket.on('chat', function(data){
             var chatMessage = {
                 name: $("#txtName").val(), chat: $("#txtMessage").val()
             }
-          }
             postChat(chatMessage);
-            $('#send').blur();
+
+          }
+             $('#send').blur();
           //  $('#txtName').val(name);
             $('#txtMessage').val('');
             d.animate({ scrollTop: d.prop('scrollHeight') }, 100);
