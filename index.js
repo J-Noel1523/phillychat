@@ -12,9 +12,10 @@ var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
 var app  = express();
+require('dotenv').config();
 const http = require('http').Server(app);
 var io = require("socket.io")(http);
-var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
+//var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -56,12 +57,12 @@ allowedAttributes:{
 });
 
 
- mongoose.connect('mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
+ mongoose.connect(process.env.MONGODB_URI || 'mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
  console.log('Here is Database Connection error', error);
 
 });
 
-mongoose.connection.openUri('mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb');
+
 
 mongoose.Promise = Promise;
 var Messages = mongoose.model('messages', {
