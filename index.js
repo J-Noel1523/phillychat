@@ -56,7 +56,7 @@ allowedAttributes:{
 });
 
 
- mongoose.connect(process.enc.MONGODB_URI,{ useNewUrlParser: true}, function(error){
+ mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true}, function(error){
  console.log('Database connection', error);
 });
 
