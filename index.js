@@ -12,7 +12,7 @@ var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
 var app  = express();
-require('dotenv').config();
+require('dotenv').load();
 const http = require('http').Server(app);
 var io = require("socket.io")(http);
 //var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
