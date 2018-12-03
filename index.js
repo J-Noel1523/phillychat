@@ -11,10 +11,10 @@ const path = require('path');
 var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
-var app  = express();
+var app = express();
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
-var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
+var dbUrl = process.env.MONGODB_URI;
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
