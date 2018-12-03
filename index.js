@@ -61,6 +61,8 @@ allowedAttributes:{
 
 });
 
+mongoose.connection.openUri('mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb');
+
 mongoose.Promise = Promise;
 var Messages = mongoose.model('messages', {
   name: String,
