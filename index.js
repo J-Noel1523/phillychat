@@ -66,12 +66,12 @@ var Messages = mongoose.model('messages', {
   console.log('Database connection', error);
  });
 
-  app.post("/chats",  function (req, res)  {
+  app.post("/chats",  async function (req, res)  {
 
      try {
 
          var chat = new Messages(req.body);
-      //    await chat.save();
+         await chat.save();
 
         res.sendStatus(200);
         //Emit the event

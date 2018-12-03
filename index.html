@@ -12,7 +12,7 @@
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
 </head>
-<body> 
+<body>
   <!--
 <center>
 
@@ -185,7 +185,7 @@ socket.on('chat', function(data){
                  $("#error").css("opacity", "1");
           return true;
         }else if($("#txtName").val() != "" && $("#txtMessage").val() != "") {
-          $("#time").html('  <em style="font-size:12px;">' + stamp + '</em> ');
+          $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
           $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
             var chatMessage = {
                 name: $("#txtName").val(), chat: $("#txtMessage").val()
