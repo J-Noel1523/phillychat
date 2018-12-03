@@ -14,8 +14,7 @@ var os = require('os');
 var app  = express();
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
-var dbUrl = process.env.DATABASE_URI;
-
+var dbUrl = process.env.MONGODB_URI;
 app.use(express.static(__dirname ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
