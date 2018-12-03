@@ -56,7 +56,7 @@ allowedAttributes:{
 });
 
 
- mongoose.connect(process.env.MONGODB_URI || 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages',{ useNewUrlParser: true}, function(error){
+ mongoose.connect(process.env.MONGODB_URI || 'mongodb://jerrynoel:noeljerry1@ds217921.mlab.com:17921/herokudb',{ useNewUrlParser: true}, function(error){
  console.log('Database connection', error);
 });
 
