@@ -12,7 +12,7 @@ var os = require('os');
 //var fileUpload = require('express-fileupload');
  //var cloudinaryStorage = require('multer-storage-cloudinary');
 var app  = express();
-var http = require('https').Server(app);
+var https = require('https').Server(app);
 var io = require("socket.io")(https);
 var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
 app.use(express.static(__dirname ));
@@ -104,6 +104,6 @@ socket.on("typing", function(data){
   });
 });
 
-var server = http.listen(process.env.PORT || 3020, () => {
+var server = https.listen(process.env.PORT || 3020, () => {
     console.log("Well done, now I am listening on ", server.address().port);
 });
