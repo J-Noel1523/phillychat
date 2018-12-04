@@ -75,8 +75,13 @@ var Messages = mongoose.model('messages', {
      try {
 
          var chat = new Messages(req.body);
-      //   await chat.save();
- 
+         chat.save().then(function(){
+           console.log('sent');
+         }).catch(function(err){
+           res.status(400).send('unable to save to Database');
+           console.log('error saving to database');
+         });
+
         res.sendStatus(200);
         //Emit the event
       io.emit("chat", req.body);
