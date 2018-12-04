@@ -176,11 +176,6 @@ socket.on('chat', function(data){
 
 
         $("#send").click(() => {
-          $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
-            var chatMessage = {
-                name: $("#txtName").val(), chat: $("#txtMessage").val()
-            }
-            postChat(chatMessage);
 
       $("#txtMessage").val($.trim($("#txtMessage").val()).replace(/\s*[\r\n]+\s*/g, '\n')
                                         .replace(/(<[^\/][^>]*>)\s*/g, '$1')
