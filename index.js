@@ -98,12 +98,12 @@ app.get("/chats", (req, res) => {
 });
 
 app.get('/images', function(req, res){
-
+var finalResult;
     cloudinary.api.resources({type:"upload",prefix:"chatpictures/"}, function(error, result){
       console.log(error, result);
-      res.send(result + "\n");
+   finalResult = result;
     });
-
+  res.send(finalResult + "\n");
 });
 
 io.on("connection", function(socket, error){
