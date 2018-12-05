@@ -97,11 +97,13 @@ app.get("/chats", (req, res) => {
 
 });
 
-app.get('/iamges', function(req, res){
-  cloudinary.v2.api.resources(function(error, result){
-      console.log(result);
-      res.send(result);
+app.get('/images', function(req, res){
+
+    cloudinary.api.resources({type:"upload",prefix:"chatpictures/"}, function(error, result){
+      console.log(error, result);
+      res.send(result + "\n");
     });
+
 });
 
 io.on("connection", function(socket, error){
