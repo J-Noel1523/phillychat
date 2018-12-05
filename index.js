@@ -71,9 +71,7 @@ var Messages = mongoose.model('messages', {
   chat: String
  });
   app.post("/chats",  function (req, res)  {
-
      try {
-
          var chat = new Messages(req.body);
          chat.save().then(function(){
            console.log('sent');
@@ -97,6 +95,13 @@ app.get("/chats", (req, res) => {
         res.send(chats);
     });
 
+});
+
+app.get('/iamges', function(req, res){
+  cloudinary.v2.api.resources(function(error, result){
+      console.log(result);
+      res.send(result);
+    });
 });
 
 io.on("connection", function(socket, error){
