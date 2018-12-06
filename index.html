@@ -67,6 +67,7 @@ socket.on("chat", addChat);
 
       $('#form').ajaxForm(function(response) {
         console.log(response);
+        alert(cloudinary.url(path, {resource_type: "upload"}));
       });
 
      //alert("hi");
