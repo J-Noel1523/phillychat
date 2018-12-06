@@ -38,7 +38,7 @@ cloudinary.config({
       cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},
    function(error, result) {console.log(result, error);
      });
-     alert(cloudinary.url(path, {resource_type: "upload"}));
+     res.send(cloudinary.url(path, {resource_type: "upload"}));
     });
   });
 
