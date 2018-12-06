@@ -63,7 +63,7 @@ var Messages = mongoose.model('messages', {
 
  app.post('/cloud', function(req, res) {
 
-                  var images = new Images(req.body);
+                  var images = new Images({name: 'jerry', url:'sadsdaasa'});
                   images.save().then(function(){
                     console.log('picture/vid sent');
                   });
