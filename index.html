@@ -178,17 +178,17 @@ socket.on('chat', function(data){
   if($("#txtName").val() != ""){
   //  $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
   //  $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
-      var chatMessage = {
+      var imageUrlName = {
           name: $("#txtName").val()
       }
   }
-  postImage(chatMessage);
+  postImage(imageUrlName);
 
     });
 
-    function postImage(chat) {
-        $.post("/cloud", chat)
-        console.log(chat);
+    function postImage(image) {
+        $.post("/cloud", image)
+        console.log(image);
   }
 
         $("#send").click(() => {
