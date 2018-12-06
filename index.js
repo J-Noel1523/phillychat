@@ -18,7 +18,7 @@ var io = require("socket.io")(http);
 //var dbUrl = 'mongodb://PhillyChatUser:phillychatjj1@ds151463.mlab.com:51463/chatmessages';
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 cloudinary.config({
   cloud_name:'phillychat',
