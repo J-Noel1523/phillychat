@@ -25,9 +25,9 @@ var Validator = (function() {
     return Validator;
   });
 
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
     module.exports = Validator;
-  else
+  }else{
     window.Validator = Validator;
-
+}
 });
