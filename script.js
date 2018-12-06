@@ -4,4 +4,11 @@ $(function(){
       alert("your url contains the name chats");
    }
 
+   var name;
+
+   module.exports = {
+     firstName: 'Noel',
+     lastName: 'placeHolder'
+   };
+
 });

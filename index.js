@@ -63,13 +63,14 @@ var Messages = mongoose.model('messages', {
 
  app.post('/cloud', function(req, res) {
 
-
+var person = require('./script.js');
+console.log(person.firstName);
    app.use(formidable);
    var form = new formidable.IncomingForm();
      form.parse(req, function(err, fields, files) {
      res.writeHead(200, {'content-type': 'text/plain'});
      res.write('received upload:\n\n' );
-     res.end(util.inspect({fields: fields, files: files}));
+     res.end(util.inspect({fields: person.firstName, files: files}));
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
