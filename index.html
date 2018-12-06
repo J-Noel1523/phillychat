@@ -72,13 +72,12 @@ socket.on("chat", addChat);
       //  $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
       //  $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
           var imageUrlName = {
-              name: $("#txtName").val()
+              name: $("#txtName").val(), url: 'sa'
           }
       }
       postImage(imageUrlName);
 
         });
-
       });
 
      //alert("hi");
@@ -186,6 +185,7 @@ socket.on('chat', function(data){
  types.innerHTML = "";
 });
 
+
     function postImage(image) {
         $.post("/cloud", image)
         console.log(image);
@@ -217,7 +217,7 @@ socket.on('chat', function(data){
             d.animate({ scrollTop: d.prop('scrollHeight') }, 100);
           //  socket.emit("typing", false);
         });
-
+      });
 
 
 
@@ -236,8 +236,6 @@ function addChat(chatMessage){
 
     $("#messages").append(`<p style="margin-left:5px;"><strong> ${chatMessage.name}:</strong> ${chatMessage.chat}</p> `).css("display","inline");
 }
-
-});
 
 </script>
 
