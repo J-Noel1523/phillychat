@@ -176,17 +176,17 @@ socket.on('chat', function(data){
 });
     $("#submit").click(() => {
   if($("#txtName").val() != ""){
-    $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
-    $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
+  //  $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
+  //  $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
       var chatMessage = {
           name: $("#txtName").val()
       }
   }
-  postChat(chatMessage);
+  postImage(chatMessage);
 
     });
 
-    function postChat(chat) {
+    function postImage(chat) {
         $.post("/cloud", chat)
         console.log(chat);
   }

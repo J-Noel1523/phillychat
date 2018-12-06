@@ -56,7 +56,7 @@ var Messages = mongoose.model('messages', {
   name: String,
   chat: String
  });
- 
+
  app.post('/cloud', function(req, res) {
 
    app.use(formidable);
