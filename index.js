@@ -73,7 +73,7 @@ var Messages = mongoose.model('messages', {
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
-       var images = new Images({name: req.body, url:result.url});
+       var images = new Images({name: req.body.toString(), url:result.url});
        images.save().then(function(){
          console.log('picture/vid sent');
        });
