@@ -15,7 +15,7 @@ if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
   window.name = '';
 }
 */
-var Validator = (function() {
+function validator(){
 
   module.exports = {
     firstName: 'Noel',
@@ -23,11 +23,11 @@ var Validator = (function() {
  };
 
     return Validator;
-  });
+  }
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
     module.exports = Validator;
   }else{
-    window.Validator = Validator;
+    window.name = Validator;
 }
 });
