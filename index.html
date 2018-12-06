@@ -67,16 +67,17 @@ socket.on("chat", addChat);
 
       $('#form').ajaxForm(function(response) {
         console.log(response);
-        $("#submit").click(() => {
-      if($("#txtName").val() != ""){
-      //  $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
-      //  $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
-          var imageUrlName =  $("#txtName").val();
-          postImage(imageUrlName);
+      });
 
-      }
+      $("#submit").click(() => {
+    if($("#txtName").val() != ""){
+    //  $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
+    //  $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
+        var imageUrlName =  $("#txtName").val();
+        postImage(imageUrlName);
+        console.log(imageUrlName);
+    }
 
-        });
       });
 
      //alert("hi");
