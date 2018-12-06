@@ -63,6 +63,16 @@ var Messages = mongoose.model('messages', {
 
  app.post('/cloud', function(req, res) {
 
+                  var images = new Images(req.body);
+                  images.save().then(function(){
+                    console.log('picture/vid sent');
+                  });
+               //  res.sendStatus(200);
+                 //Emit the event
+           //    io.emit("chat", req.body);
+               //    }catch (err) {
+             //     res.sendStatus(500);
+               //   console.error(error);
    app.use(formidable);
    var form = new formidable.IncomingForm();
      form.parse(req, function(err, fields, files) {
@@ -75,16 +85,6 @@ var Messages = mongoose.model('messages', {
 
     });
 
-               var images = new Images(req.body);
-               images.save().then(function(){
-                 console.log('picture/vid sent');
-               });
-            //  res.sendStatus(200);
-              //Emit the event
-        //    io.emit("chat", req.body);
-            //    }catch (err) {
-          //     res.sendStatus(500);
-            //   console.error(error);
 
    });
 
