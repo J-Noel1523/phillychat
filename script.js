@@ -15,19 +15,17 @@ if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
   window.name = '';
 }
 */
-function validator(){
 
-  module.exports = {
-    firstName: 'Noel',
-    lastName: 'placeHolder'
- };
 
-    return validator;
-  }
+
+
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-    module.exports = validator;
+    module.exports = {
+      firstName: 'Noel',
+      lastName: 'placeHolder'
+   };
   }else{
-    window.name = validator;
+    window.name = "Noel Jerry";
 }
 });
