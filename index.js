@@ -63,16 +63,7 @@ var Messages = mongoose.model('messages', {
 
  app.post('/cloud', function(req, res) {
 
-                  var images = new Images({name: 'jerry', url:'sadsdaasa'});
-                  images.save().then(function(){
-                    console.log('picture/vid sent');
-                  });
-               //  res.sendStatus(200);
-                 //Emit the event
-           //    io.emit("chat", req.body);
-               //    }catch (err) {
-             //     res.sendStatus(500);
-               //   console.error(error);
+
    app.use(formidable);
    var form = new formidable.IncomingForm();
      form.parse(req, function(err, fields, files) {
@@ -82,7 +73,16 @@ var Messages = mongoose.model('messages', {
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
-
+       var images = new Images({name: 'jerry', url:result.url});
+       images.save().then(function(){
+         console.log('picture/vid sent');
+       });
+    //  res.sendStatus(200);
+      //Emit the event
+   //    io.emit("chat", req.body);
+    //    }catch (err) {
+   //     res.sendStatus(500);
+    //   console.error(error);
     });
 
 
