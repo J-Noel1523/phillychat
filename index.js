@@ -103,9 +103,8 @@ app.get('/images', function(req, res){
   cloudinary.v2.api.resources({ type: 'upload' }, function(error, result){
    console.log(result.resources);
    results = result.resources;
-   console.log(cloudinary.url(path, {resource_type: "upload"}));
    res.send(cloudinary.url(path, {resource_type: "upload"}));
-
+   console.log(cloudinary.url(path, {resource_type: "upload"}));
   });
 
 
