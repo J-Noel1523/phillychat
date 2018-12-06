@@ -99,10 +99,10 @@ app.get("/chats", (req, res) => {
 
 app.get('/images', function(req, res){
 
-  var results = cloudinary.api.resources({type:"upload",prefix:"chatpictures/"}, function(error, result){
-      console.log(error, result);
-   });
-   res.send(results);
+  cloudinary.v2.api.resources({ type: 'upload' }, function(error, result){
+
+  });
+  res.send(cloudinary.v2.api.resources({ type: 'upload' }, function(error, result){}));
 });
 
 io.on("connection", function(socket, error){
