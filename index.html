@@ -64,11 +64,7 @@ var socket = io();
 socket.on("chat", addChat);
     $(function() {
 
-      module.exports = {
-        firstName: 'Noel',
-        lastName: 'placeHolder'
-      };
-      
+     
       $('#form').ajaxForm(function(response) {
         console.log(response);
       });
