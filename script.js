@@ -22,12 +22,12 @@ function validator(){
     lastName: 'placeHolder'
  };
 
-    return Validator;
+    return validator;
   }
 
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-    module.exports = Validator;
+    module.exports = validator;
   }else{
-    window.name = Validator;
+    window.name = validator;
 }
 });
