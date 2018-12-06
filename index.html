@@ -67,7 +67,7 @@ socket.on("chat", addChat);
 
       $('#form').ajaxForm(function(response) {
         console.log(response);
-      
+
       });
 
      //alert("hi");
@@ -174,7 +174,22 @@ socket.emit('chat', types.value);
 socket.on('chat', function(data){
  types.innerHTML = "";
 });
+    $("#submit").click(() => {
+  if($("#txtName").val() != ""){
+    $("#time").html('<em style="font-size:12px;">' + stamp + '</em> ');
+    $("#txtMessage").val($("#txtMessage").val() + ' ' + $("#time").html());
+      var chatMessage = {
+          name: $("#txtName").val()
+      }
+  }
+  postChat(chatMessage);
 
+    });
+
+    function postChat(chat) {
+        $.post("/cloud", chat)
+        console.log(chat);
+  }
 
         $("#send").click(() => {
 

@@ -37,7 +37,22 @@ cloudinary.config({
       var path = files.myfile.path;
       cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
         console.log(result.url, error);
+        try {
+            var chat = new Messages(req.body, result.url);
+            chat.save().then(function(){
+              console.log('picture/vid sent');
+            }).catch(function(err){
+              res.status(400).send('unable to save to Database');
+              console.log('error saving to database');
+            });
 
+           res.sendStatus(200);
+           //Emit the event
+         io.emit("chat", req.body);
+             }catch (err) {
+            res.sendStatus(500);
+            console.error(error);
+        }
      });
 
     });
