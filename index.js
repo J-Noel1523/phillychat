@@ -35,9 +35,9 @@ cloudinary.config({
       res.write('received upload:\n\n' );
       res.end(util.inspect({fields: fields, files: files}));
       var path = files.myfile.path;
-      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},
-   function(error, result) {console.log(result, error);
-       console.log(cloudinary.url(path, {resource_type: "upload"}));
+      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
+        console.log(result.url, error);
+
      });
 
     });
