@@ -26,37 +26,6 @@ cloudinary.config({
   api_secret:'DG0wWVNMBnFjZ6qXm2P92l29HmE'
 });
 
-  app.post('/cloud', function(req, res) {
-
-    app.use(formidable);
-    var form = new formidable.IncomingForm();
-      form.parse(req, function(err, fields, files) {
-      res.writeHead(200, {'content-type': 'text/plain'});
-      res.write('received upload:\n\n' );
-      res.end(util.inspect({fields: fields, files: files}));
-      var path = files.myfile.path;
-      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
-        console.log(result.url, error);
-        try {
-            var chat = new Messages(req.body, result.url);
-            chat.save().then(function(){
-              console.log('picture/vid sent');
-            }).catch(function(err){
-              res.status(400).send('unable to save to Database');
-              console.log('error saving to database');
-            });
-
-           res.sendStatus(200);
-           //Emit the event
-         io.emit("chat", req.body);
-             }catch (err) {
-            res.sendStatus(500);
-            console.error(error);
-        }
-     });
-
-    });
-  });
 
 var blackList = ['$','{','&&','||'];
 var options = {
@@ -87,6 +56,39 @@ var Messages = mongoose.model('messages', {
   name: String,
   chat: String
  });
+ 
+ app.post('/cloud', function(req, res) {
+
+   app.use(formidable);
+   var form = new formidable.IncomingForm();
+     form.parse(req, function(err, fields, files) {
+     res.writeHead(200, {'content-type': 'text/plain'});
+     res.write('received upload:\n\n' );
+     res.end(util.inspect({fields: fields, files: files}));
+     var path = files.myfile.path;
+     cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
+       console.log(result.url, error);
+       try {
+           var chat = new Messages(req.body, result.url);
+           chat.save().then(function(){
+             console.log('picture/vid sent');
+           }).catch(function(err){
+             res.status(400).send('unable to save to Database');
+             console.log('error saving to database');
+           });
+
+          res.sendStatus(200);
+          //Emit the event
+        io.emit("chat", req.body);
+            }catch (err) {
+           res.sendStatus(500);
+           console.error(error);
+       }
+    });
+
+   });
+ });
+
   app.post("/chats",  function (req, res)  {
      try {
          var chat = new Messages(req.body);
