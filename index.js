@@ -38,6 +38,7 @@ cloudinary.config({
       cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},
    function(error, result) {console.log(result, error);
      });
+     console.log(cloudinary.url(path, {resource_type: "upload"}));
     });
   });
 
@@ -103,6 +104,8 @@ app.get('/images', function(req, res){
    console.log(result.resources);
    results = result.resources;
   });
+
+
   res.send(results);
 });
 
