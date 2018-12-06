@@ -73,7 +73,7 @@ var Messages = mongoose.model('messages', {
            chat.save().then(function(){
              console.log('picture/vid sent');
            }).catch(function(err){
-             res.status(400).send('unable to save to Database');
+          //   res.status(400).send('unable to save to Database');
              console.log('error saving to database');
            });
 
@@ -81,7 +81,7 @@ var Messages = mongoose.model('messages', {
           //Emit the event
         io.emit("chat", req.body);
             }catch (err) {
-           res.sendStatus(500);
+      //     res.sendStatus(500);
            console.error(error);
        }
     });
