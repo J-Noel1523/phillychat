@@ -68,7 +68,7 @@ var Messages = mongoose.model('messages', {
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
-       try {
+
            var chat = new Messages(req.body, result.url);
            chat.save().then(function(){
              console.log('picture/vid sent');
@@ -77,13 +77,13 @@ var Messages = mongoose.model('messages', {
              console.log('error saving to database');
            });
 
-          res.sendStatus(200);
+        //  res.sendStatus(200);
           //Emit the event
-        io.emit("chat", req.body);
-            }catch (err) {
+    //    io.emit("chat", req.body);
+        //    }catch (err) {
       //     res.sendStatus(500);
-           console.error(error);
-       }
+        //   console.error(error);
+
     });
 
    });
