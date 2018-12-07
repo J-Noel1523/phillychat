@@ -5,7 +5,7 @@ margin: 0;
 }
 
 form div #myfile{
-  display: none;
+  // display: none;
 }
 form div img{
   width:80px;
