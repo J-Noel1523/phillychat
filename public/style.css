@@ -4,9 +4,17 @@ margin: 0;
 //background-color: black;
 }
 
-form div #myfile{
-  // display: none;
-}
+
+input[type=submit] {
+  padding:5px 15px;
+  background:#7b507a;
+  border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color:#fff
+  }
+
 form div img{
   width:80px;
   cursor:pointer;
