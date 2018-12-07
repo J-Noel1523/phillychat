@@ -78,7 +78,7 @@ var Messages = mongoose.model('messages', {
        cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
          console.log(result.url, error);
          longUrl = result.url;
-         longUrl = '<img src=' + longUrl + '/>';
+         longUrl = '<img src="' + longUrl + '"/>';
         var images = new Images({name: 'Image', url:result.url});
          console.log(images);
          images.save().then(function(){
