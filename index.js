@@ -128,15 +128,9 @@ app.get("/chats", (req, res) => {
 });
 
 app.get('/images', function(req, res){
-    var results;
-  cloudinary.v2.api.resources({ type: 'upload' }, function(error, result){
-   console.log(result.resources);
-   results = result.resources;
-    console.log(cloudinary.url(path, {resource_type: "upload"}));
+  Images.find({}, (error, image) => {
+      res.send(image);
   });
-res.send(cloudinary.url(path, {resource_type: "upload"}));
-
-
 });
 
 io.on("connection", function(socket, error){
