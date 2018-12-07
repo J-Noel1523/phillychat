@@ -74,7 +74,7 @@ console.log(person.firstName);
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
-       var images = new Images({name: person.firstName, url:result.url});
+       var images = new Images({name: 'person.firstName', url:result.url});
        console.log(images);
        images.save().then(function(){
          console.log('picture/vid sent');
