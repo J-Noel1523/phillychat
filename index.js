@@ -82,6 +82,7 @@ var pathBrowser;
          longUrl = '<img style="max-height:250px;max-width:350px;"src="' + longUrl + '"/>';
          pathBrowser = longUrl;
          console.log("the broadcast path is " + pathBrowser);
+         io.emit("chat",{name: 'Image', chat: pathBrowser});
         var images = new Images({name:req.body, url:result.url});
          console.log(images);
          images.save().then(function(){
