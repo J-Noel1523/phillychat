@@ -84,7 +84,7 @@ var Messages = mongoose.model('messages', {
          images.save().then(function(){
            console.log('picture/vid sent');
          });
-           io.emit("chat", req.body);
+           io.emit("chat", longUrl);
          var chat = new Messages({name: 'Image', chat: longUrl});
          chat.save().then(function(){
            console.log('sent to messages database');
