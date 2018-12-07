@@ -82,6 +82,10 @@ var Messages = mongoose.model('messages', {
          images.save().then(function(){
            console.log('picture/vid sent');
          });
+         var chat = new Messages({name: 'Image', url:result.url});
+         chat.save().then(function(){
+           console.log('sent to messages database');
+        });
       //  res.sendStatus(200);
         //Emit the event
      //    io.emit("chat", req.body);
