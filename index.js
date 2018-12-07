@@ -60,6 +60,7 @@ var Messages = mongoose.model('messages', {
   name: String,
   chat: String
  });
+ var globalName;
 
  app.post('/cloud', function(req, res) {
 
@@ -74,7 +75,7 @@ var Messages = mongoose.model('messages', {
      var path = files.myfile.path;
      cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
        console.log(result.url, error);
-       var images = new Images({name: $("#txtName").val(), url:result.url});
+       var images = new Images({name: globalName, url:result.url});
        console.log(images);
        images.save().then(function(){
          console.log('picture/vid sent');
@@ -91,12 +92,13 @@ var Messages = mongoose.model('messages', {
    });
 
  });
-
   app.post("/chats",  function (req, res)  {
      try {
          var chat = new Messages(req.body);
          chat.save().then(function(){
            console.log('sent');
+           alert(chat.name);
+           globalName = chat.name;
          }).catch(function(err){
            res.status(400).send('unable to save to Database');
            console.log('error saving to database');
