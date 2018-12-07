@@ -73,8 +73,10 @@ var Messages = mongoose.model('messages', {
      res.write('received upload:\n\n' );
      res.end(util.inspect({fields: fields, files: files}));
    var longUrl;
+   var pathBrowser;
     try{
        var path = files.myfile.path;
+       pathBrowser = path;
        cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
          console.log(result.url, error);
          longUrl = result.url;
@@ -84,11 +86,12 @@ var Messages = mongoose.model('messages', {
          images.save().then(function(){
            console.log('picture/vid sent');
          });
-           io.emit("chat", '<img style=\"max-height:250px;max-width:350px;\"src=\"http://res.cloudinary.com/phillychat/image/upload/v1544151211/chatpictures/pmnokom1svymstgh1k28.jpg\"/>');
+
          var chat = new Messages({name: 'Image', chat: longUrl});
          chat.save().then(function(){
            console.log('sent to messages database');
         });
+          io.emit("chat", pathBrowser);
       //  res.sendStatus(200);
         //Emit the event
      //    io.emit("chat", req.body);
