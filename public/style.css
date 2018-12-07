@@ -3,6 +3,14 @@ font-family: 'Nunito';
 margin: 0;
 //background-color: black;
 }
+
+form div #myfile{
+  display: none;
+}
+form div img{
+  width:80px;
+  cursor:pointer;
+}
 #myVideo {
     position: fixed;
     right: 0;
