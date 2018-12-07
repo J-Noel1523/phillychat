@@ -62,9 +62,10 @@
 var socket = io();
 
 socket.on("chat", addChat);
-socket.on("image", getImages);
+
 
     $(function() {
+      getImages();
       $('#form').ajaxForm(function(response) {
         console.log(response);
       });
