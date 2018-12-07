@@ -21,6 +21,7 @@ input[type=file] {
   top: 0;
   margin-top: -10px;
   opacity: 0;
+  color:#333;
 }
 input[type=submit] {
   padding:5px 15px;
@@ -30,7 +31,7 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     color:#fff;
-    width:200px;
+  //  width:200px;
   }
 
 form div img{
