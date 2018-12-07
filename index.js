@@ -72,21 +72,28 @@ var Messages = mongoose.model('messages', {
      res.writeHead(200, {'content-type': 'text/plain'});
      res.write('received upload:\n\n' );
      res.end(util.inspect({fields: fields, files: files}));
-     var path = files.myfile.path;
-     cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
-       console.log(result.url, error);
-       var images = new Images({name: 'Image', url:result.url});
-       console.log(images);
-       images.save().then(function(){
-         console.log('picture/vid sent');
-       });
-    //  res.sendStatus(200);
-      //Emit the event
-   //    io.emit("chat", req.body);
-    //    }catch (err) {
-   //     res.sendStatus(500);
-    //   console.error(error);
-    });
+
+    try{
+       var path = files.myfile.path;
+       cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
+         console.log(result.url, error);
+         var images = new Images({name: 'Image', url:result.url});
+         console.log(images);
+         images.save().then(function(){
+           console.log('picture/vid sent');
+         });
+      //  res.sendStatus(200);
+        //Emit the event
+     //    io.emit("chat", req.body);
+      //    }catch (err) {
+     //     res.sendStatus(500);
+      //   console.error(error);
+      });
+
+     }catch(e){
+       console.log(e);
+     }
+
 
 
    });
