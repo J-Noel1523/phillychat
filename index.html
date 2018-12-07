@@ -44,12 +44,14 @@
        <button id="send">Send</button>
        <p id="typing" style="margin-left:5px;  position: absolute; margin-top:-20px; color:grey; "> </p>
 
+<p id="status"></p>
+<div>
        <form style="position:absolute" id="form" action="/cloud" method="post" enctype="multipart/form-data">
-
-         <input type="file" id="myfile" name="myfile">
-         <input type="submit" id="submit" name="submit" value="Upload File" >
+        <label id="jlabel" for="myfile"> Upload a file</label> <input type="file" id="myfile" name="myfile">
+         <input type="submit" id="submit" name="submit" value="Upload" >
      </form>
-     <p id="status"></p>
+     </div>
+<p id="status"></p>
 
      </div>
 
