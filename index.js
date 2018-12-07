@@ -63,8 +63,8 @@ var Messages = mongoose.model('messages', {
 
  app.post('/cloud', function(req, res) {
 
-var person = require('./script.js');
-console.log(person.firstName);
+//var person = require('./script.js');
+//console.log(person.firstName);
    app.use(formidable);
    var form = new formidable.IncomingForm();
      form.parse(req, function(err, fields, files) {
