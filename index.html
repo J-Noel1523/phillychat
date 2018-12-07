@@ -3,8 +3,9 @@
   <head>
     <title>Philly Chat</title>
     <link rel="stylesheet" type="text/css" href="/public/style.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/script.js"></script>
+    <script>
+    $=jQuery;
+    </script>    <script src="/script.js"></script>
    <script src="/socket.io/socket.io.js"></script>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
@@ -64,7 +65,7 @@ var socket = io();
 socket.on("chat", addChat);
     $(function() {
 
-     
+
       $('#form').ajaxForm(function(response) {
         console.log(response);
       });

@@ -15,11 +15,6 @@ if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
   window.name = '';
 }
 */
-
-
-
-
-
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
     module.exports = {
       firstName: 'Noel',
