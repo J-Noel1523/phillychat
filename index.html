@@ -61,7 +61,7 @@
 <script>
 var socket = io();
 
-socket.on("chat", addChat);
+socket.on("chat", addChat, addImages);
     $(function() {
       $('#form').ajaxForm(function(response) {
         console.log(response);
@@ -217,6 +217,18 @@ socket.on('chat', function(data){
         });
       });
 
+
+
+      function getImages() {
+           $.get("/images", (images) => {
+               images.forEach(addImages)
+           });
+      }
+
+      function addImages(images){
+
+          $("#messages").append(`<p style="margin-left:5px;">${images.url}</p> `).css("display","inline");
+      }
 
 
     function postChat(chat) {
