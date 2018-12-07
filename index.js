@@ -72,17 +72,18 @@ var Messages = mongoose.model('messages', {
      res.writeHead(200, {'content-type': 'text/plain'});
      res.write('received upload:\n\n' );
      res.end(util.inspect({fields: fields, files: files}));
-
+   var longUrl;
     try{
        var path = files.myfile.path;
        cloudinary.v2.uploader.upload(path, {folder: "chatpictures"},function(error, result) {
          console.log(result.url, error);
-         var images = new Images({name: 'Image', url:result.url});
+         longUrl = result.url;
+        var images = new Images({name: 'Image', url:result.url});
          console.log(images);
          images.save().then(function(){
            console.log('picture/vid sent');
          });
-         var chat = new Messages({name: 'Image', url:result.url});
+         var chat = new Messages({name: 'Image', chat: longUrl});
          chat.save().then(function(){
            console.log('sent to messages database');
         });
