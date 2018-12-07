@@ -61,7 +61,7 @@ var Messages = mongoose.model('messages', {
   chat: String
  });
  var globalName;
-
+var pathBrowser;
  app.post('/cloud', function(req, res) {
 
 //var person = require('./script.js');
@@ -73,7 +73,6 @@ var Messages = mongoose.model('messages', {
      res.write('received upload:\n\n' );
      res.end(util.inspect({fields: fields, files: files}));
    var longUrl;
-   var pathBrowser;
     try{
        var path = files.myfile.path;
        pathBrowser = path;
@@ -81,6 +80,8 @@ var Messages = mongoose.model('messages', {
          console.log(result.url, error);
          longUrl = result.url;
          longUrl = '<img style="max-height:250px;max-width:350px;"src="' + longUrl + '"/>';
+         pathBrowser = longUrl;
+         console.log("the broadcast path is " + pathBrowser);
         var images = new Images({name:req.body, url:result.url});
          console.log(images);
          images.save().then(function(){
@@ -91,7 +92,7 @@ var Messages = mongoose.model('messages', {
          chat.save().then(function(){
            console.log('sent to messages database');
         });
-          io.emit("chat", pathBrowser);
+        //  io.emit("chat", pathBrowser);
       //  res.sendStatus(200);
         //Emit the event
      //    io.emit("chat", req.body);
