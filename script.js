@@ -1,6 +1,6 @@
 $(function(){
-alert("test");
-
+//alert("test");
+/*
    var name;
 if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
 
@@ -11,5 +11,5 @@ if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
 }else{
   window.name = 'Noel';
 }
-
+*/
 });
