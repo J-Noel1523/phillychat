@@ -61,7 +61,7 @@
 <script>
 var socket = io();
 
-socket.on("chat", addChat, addImages);
+socket.on("chat", addChat, getImages);
     $(function() {
       $('#form').ajaxForm(function(response) {
         console.log(response);
