@@ -32,7 +32,7 @@
   <div style="position: relative;border: 1px solid #dddddd;height:700px; width:700px;" id="contain">
 
 
-    <input style="color:white; background-color:#7b507a;"id="txtName" type="text" placeholder="Name" />
+    <input id="txtName" style="color:white; background-color:#7b507a;"  type="text" placeholder="Name" />
 
   <div id="scrollDiv" style="  max-height:500px;  overflow-y:auto;">
      <div style="max-height:400px; min-height:400px; width:200px;  overflow-y:auto;" id="messages"></div>
@@ -45,13 +45,10 @@
        <p id="typing" style="margin-left:5px;  position: absolute; margin-top:-20px; color:grey; "> </p>
 
        <form style="position:absolute" id="form" action="/cloud" method="post" enctype="multipart/form-data">
-        <div>
 
-                <input type="file" id="myfile" name="myfile" />
-              <button style="" type="submit" id="submit"> Upload</button>
-
-           </div>
-      </form>
+         <input type="file" id="myfile" name="myfile">
+         <input type="submit" id="submit" name="submit" value="Upload File" >
+     </form>
      <p id="status"></p>
 
      </div>
