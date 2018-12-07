@@ -1,8 +1,5 @@
 $(function(){
 alert("test");
-/*  if(window.location.href.indexOf("chats") > -1) {
-      alert("your url contains the name chats");
-   }
 
    var name;
 if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
@@ -12,15 +9,7 @@ if(typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
      lastName: 'placeHolder'
   };
 }else{
-  window.name = '';
+  window.name = 'Noel';
 }
-*/
-  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-    module.exports = {
-      firstName: 'Noel',
-      lastName: 'placeHolder'
-   };
-  }else{
-    window.name = "Noel Jerry";
-}
+
 });
