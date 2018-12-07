@@ -97,8 +97,8 @@ var Messages = mongoose.model('messages', {
          var chat = new Messages(req.body);
          chat.save().then(function(){
            console.log('sent');
-           alert(chat.name);
-           globalName = chat.name;
+           alert(chat);
+           globalName = chat;
          }).catch(function(err){
            res.status(400).send('unable to save to Database');
            console.log('error saving to database');
